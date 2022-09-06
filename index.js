@@ -16,6 +16,8 @@ bot.launch({ dropPendingUpdates: true }).then(async () => {
 
 	const files = readdirSync(filePath);
 	for (const [i, file] of files.entries()) {
+		if (file.endsWith('.mov')) continue;
+
 		if (file.endsWith('.jpg')) {
 			await bot.telegram
 				.sendVideo(ID, {
